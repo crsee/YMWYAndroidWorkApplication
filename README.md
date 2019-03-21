@@ -1,2 +1,3 @@
 # YMWYAndroidWorkApplication
-android work application demo , for study .
+
+Android application development repository used for testing and studying.
