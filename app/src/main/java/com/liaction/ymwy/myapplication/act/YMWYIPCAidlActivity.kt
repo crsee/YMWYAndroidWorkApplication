@@ -6,13 +6,14 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
-import android.widget.Toast
+import com.liaction.ymwy.isNull
 import com.liaction.ymwy.myapplication.IYMWYAidlInterface
 import com.liaction.ymwy.myapplication.R
 import com.liaction.ymwy.myapplication.base.YMWYBaseActivity
 import com.liaction.ymwy.myapplication.bean.YMWYMessage
 import com.liaction.ymwy.myapplication.service.YMWYAidlService
 import com.liaction.ymwy.ymwyLog
+import com.liaction.ymwy.ymwyToast
 import kotlinx.android.synthetic.main.activity_ymwyipcaidl.*
 
 class YMWYIPCAidlActivity : YMWYBaseActivity(), ServiceConnection {
@@ -29,8 +30,8 @@ class YMWYIPCAidlActivity : YMWYBaseActivity(), ServiceConnection {
 
     private fun initAction() {
         mAidlSendBtn.setOnClickListener {
-            if (null == mBinder){
-                Toast.makeText(this, "请先进行连接", Toast.LENGTH_SHORT).show()
+            if (mBinder.isNull()) {
+                ymwyToast(this, "请先进行连接")
                 return@setOnClickListener
             }
             mAidlMessageTv.text = ""
@@ -41,7 +42,7 @@ class YMWYIPCAidlActivity : YMWYBaseActivity(), ServiceConnection {
                 }
                 return@setOnClickListener
             }
-            Toast.makeText(this, "请输入消息内容", Toast.LENGTH_SHORT).show()
+            ymwyToast(this, "请输入消息内容")
         }
         mAidlConnectBtn.setOnClickListener {
             ymwyLog("准备连接")

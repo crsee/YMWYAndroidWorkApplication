@@ -17,7 +17,7 @@ import com.liaction.ymwy.ymwyLog
 
 class YMWYLayoutActivity : YMWYBaseActivity() {
 
-    object INSTANCE {
+    companion object {
         var fromThis = false
             private set
 
@@ -30,7 +30,7 @@ class YMWYLayoutActivity : YMWYBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!INSTANCE.fromThis) {
+        if (!fromThis) {
             ymwyLog("you should start this activity through YMWYLayoutActivity.INSTANCE.start(..)")
             finish()
             return

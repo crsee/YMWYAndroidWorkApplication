@@ -4,4 +4,9 @@
     <string name="activity_create">Activity Create</string>
     <string name="connect">连接</string>
     <string name="message_hint">消息内容</string>
+    <string name="input_something">input something</string>
+    <string name="bind">绑定</string>
+    <string name="unbind">解绑</string>
+    <string name="send">发送</string>
+    <string name="send_message">发送信息</string>
 </resources>

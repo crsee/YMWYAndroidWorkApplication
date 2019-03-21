@@ -11,7 +11,7 @@ import com.liaction.ymwy.ymwyLog
 
 class YMWYCreateActivity : YMWYBaseActivity() {
 
-    object INSTANCE {
+    companion object {
         var fromThis = false
             private set
 
@@ -24,7 +24,7 @@ class YMWYCreateActivity : YMWYBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!INSTANCE.fromThis) {
+        if (!fromThis) {
             ymwyLog("you should start this activity through YMWYCreateActivity.INSTANCE.start(..)")
             finish()
             return

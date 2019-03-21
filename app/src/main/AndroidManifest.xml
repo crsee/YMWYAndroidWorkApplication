@@ -4,10 +4,10 @@
           package="com.liaction.ymwy.myapplication">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <!--<uses-permission android:name="com.liaction.ymwy.aidl.service"/>-->
+    <uses-permission android:name="com.liaction.ymwy.aidl.service"/>
 
     <application
-            android:name="com.liaction.ymwy.myapplication.base.YMWYBaseApplication"
+            android:name=".base.YMWYBaseApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -16,27 +16,55 @@
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <service
-                android:permission="com.liaction.ymwy.aidl.service"
-                android:process=":aidl_service"
-                android:name=".service.YMWYAidlService"
+                android:name=".service.YMWYBindService"
                 android:enabled="true"
                 android:exported="true">
         </service>
+        <service
+                android:name=".service.YMWYAidlService2"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":aidl2">
+        </service>
 
-        <activity android:name=".act.YMWYIPCAidlActivity">
+        <activity
+                android:name=".act.YMWYIPCAidl2Activity"
+                android:label="IPC AIDL Twice">
         </activity>
-        <activity android:name=".act.YMWYLayoutActivity">
+
+        <service
+                android:name=".service.YMWYAidlService"
+                android:enabled="true"
+                android:exported="true"
+                android:permission="com.liaction.ymwy.aidl.service"
+                android:process=":aidl_service">
+        </service>
+
+        <activity
+                android:name=".act.YMWYIPCAidlActivity"
+                android:label="IPC AIDL">
         </activity>
-        <activity android:name=".act.ViewEventActivity">
+        <activity
+                android:name=".act.YMWYLayoutActivity"
+                android:label="Layout Activity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity
+                android:name=".act.ViewEventActivity"
+                android:label="View Event">
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:label="HOME">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".act.YMWYCreateActivity"/>
+        <activity
+                android:name=".act.YMWYCreateActivity"
+                android:label="Create Activity"/>
+        <activity android:name=".act.YMWYBindServiceActivity" android:label="Bind Service"/>
     </application>
 
 </manifest>

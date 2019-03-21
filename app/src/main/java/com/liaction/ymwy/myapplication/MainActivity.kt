@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.liaction.ymwy.isNotNull
 import com.liaction.ymwy.myapplication.MainBeanType.*
-import com.liaction.ymwy.myapplication.act.YMWYCreateActivity
-import com.liaction.ymwy.myapplication.act.YMWYIPCAidlActivity
-import com.liaction.ymwy.myapplication.act.YMWYLayoutActivity
+import com.liaction.ymwy.myapplication.act.*
 import com.liaction.ymwy.myapplication.base.YMWYBaseActivity
 import com.liaction.ymwy.ymwyLog
 import kotlinx.android.synthetic.main.activity_main.*
@@ -52,17 +50,17 @@ class MainActivity : YMWYBaseActivity() {
             mainBeanType = TYPE_IPC_AIDL
         ),
         MainContentBean(
-            name = "",
-            description = "",
-            mainBeanType = TYPE_IPC_AIDL
+            name = "AIDL Twice",
+            description = "再来一次操作,同上面一样",
+            mainBeanType = TYPE_IPC_AIDL_TWICE
         ).apply {
-            show = false
+            show = true
         }, MainContentBean(
-            name = "",
-            description = "",
-            mainBeanType = TYPE_IPC_AIDL
+            name = "Bind Service",
+            description = "测试 Bind Service",
+            mainBeanType = TYPE_IPC_BIND_SERVICE
         ).apply {
-            show = false
+            show = true
         }, MainContentBean(
             name = "",
             description = "",
@@ -79,15 +77,21 @@ class MainActivity : YMWYBaseActivity() {
                 TYPE_VIEW_EVENT -> {
                 }
                 TYPE_ACTIVITY_LAYOUT -> {
-                    YMWYLayoutActivity.INSTANCE.start(this)
+                    YMWYLayoutActivity.start(this)
                 }
                 TYPE_NO -> {
                 }
                 TYPE_ACTIVITY_CREATE -> {
-                    YMWYCreateActivity.INSTANCE.start(this)
+                    YMWYCreateActivity.start(this)
                 }
                 TYPE_IPC_AIDL -> {
                     startActivity(Intent(this, YMWYIPCAidlActivity::class.java))
+                }
+                TYPE_IPC_AIDL_TWICE -> {
+                    startActivity(Intent(this, YMWYIPCAidl2Activity::class.java))
+                }
+                TYPE_IPC_BIND_SERVICE -> {
+                    startActivity(Intent(this, YMWYBindServiceActivity::class.java))
                 }
             }
         }
@@ -200,4 +204,6 @@ private enum class MainBeanType {
     TYPE_ACTIVITY_LAYOUT,
     TYPE_ACTIVITY_CREATE,
     TYPE_IPC_AIDL,
+    TYPE_IPC_BIND_SERVICE,
+    TYPE_IPC_AIDL_TWICE,
 }
