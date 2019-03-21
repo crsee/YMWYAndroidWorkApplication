@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">YMWYAndroidWork</string>
+    <string name="activity_layout">Activity Layout</string>
+    <string name="activity_create">Activity Create</string>
+    <string name="connect">连接</string>
+    <string name="message_hint">消息内容</string>
 </resources>
