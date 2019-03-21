@@ -62,6 +62,24 @@ class MainActivity : YMWYBaseActivity() {
         ).apply {
             show = true
         }, MainContentBean(
+            name = "Messenger Service",
+            description = "use Messenger",
+            mainBeanType = TYPE_IPC_MESSENGER
+        ).apply {
+            show = true
+        }, MainContentBean(
+            name = "",
+            description = "",
+            mainBeanType = TYPE_IPC_AIDL
+        ).apply {
+            show = false
+        }, MainContentBean(
+            name = "",
+            description = "",
+            mainBeanType = TYPE_IPC_AIDL
+        ).apply {
+            show = false
+        }, MainContentBean(
             name = "",
             description = "",
             mainBeanType = TYPE_IPC_AIDL
@@ -92,6 +110,9 @@ class MainActivity : YMWYBaseActivity() {
                 }
                 TYPE_IPC_BIND_SERVICE -> {
                     startActivity(Intent(this, YMWYBindServiceActivity::class.java))
+                }
+                TYPE_IPC_MESSENGER -> {
+                    startActivity(Intent(this, YMWYMessengerServiceActivity::class.java))
                 }
             }
         }
@@ -204,6 +225,7 @@ private enum class MainBeanType {
     TYPE_ACTIVITY_LAYOUT,
     TYPE_ACTIVITY_CREATE,
     TYPE_IPC_AIDL,
+    TYPE_IPC_MESSENGER,
     TYPE_IPC_BIND_SERVICE,
     TYPE_IPC_AIDL_TWICE,
 }

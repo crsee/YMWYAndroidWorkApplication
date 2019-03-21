@@ -39,6 +39,10 @@
                 android:permission="com.liaction.ymwy.aidl.service"
                 android:process=":aidl_service">
         </service>
+        <service
+                android:enabled="true"
+                android:exported="true"
+                android:name=".service.YMWYMessengerService"/>
 
         <activity
                 android:name=".act.YMWYIPCAidlActivity"
@@ -65,6 +69,7 @@
                 android:name=".act.YMWYCreateActivity"
                 android:label="Create Activity"/>
         <activity android:name=".act.YMWYBindServiceActivity" android:label="Bind Service"/>
+        <activity android:name=".act.YMWYMessengerServiceActivity" android:label="Messenger Service"/>
     </application>
 
 </manifest>
