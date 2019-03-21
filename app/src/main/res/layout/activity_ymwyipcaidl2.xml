@@ -49,7 +49,7 @@
             android:id="@+id/mResultSv"
             app:layout_constraintRight_toLeftOf="@id/mMessageEt"
             app:layout_constraintRight_toRightOf="@id/mMessageEt"
-            app:layout_constraintTop_toBottomOf="@id/mBindBtn"
+            app:layout_constraintTop_toBottomOf="@id/mSendBtn"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"

@@ -15,6 +15,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <provider
+                android:name=".provider.YMWYContentProvider"
+                android:authorities="com.liaction.ymwy.myapplication.provider.YMWYContentProvider"
+                android:enabled="true"
+                android:exported="true"/>
+
         <service
                 android:name=".service.YMWYBindService"
                 android:enabled="true"
@@ -40,9 +46,9 @@
                 android:process=":aidl_service">
         </service>
         <service
+                android:name=".service.YMWYMessengerService"
                 android:enabled="true"
-                android:exported="true"
-                android:name=".service.YMWYMessengerService"/>
+                android:exported="true"/>
 
         <activity
                 android:name=".act.YMWYIPCAidlActivity"
@@ -68,8 +74,15 @@
         <activity
                 android:name=".act.YMWYCreateActivity"
                 android:label="Create Activity"/>
-        <activity android:name=".act.YMWYBindServiceActivity" android:label="Bind Service"/>
-        <activity android:name=".act.YMWYMessengerServiceActivity" android:label="Messenger Service"/>
+        <activity
+                android:name=".act.YMWYBindServiceActivity"
+                android:label="Bind Service"/>
+        <activity
+                android:name=".act.YMWYMessengerServiceActivity"
+                android:label="Messenger Service"/>
+        <activity
+                android:name=".act.YMWYContentProviderActivity"
+                android:label="ContentProvider Activity"/>
     </application>
 
 </manifest>

@@ -68,11 +68,11 @@ class MainActivity : YMWYBaseActivity() {
         ).apply {
             show = true
         }, MainContentBean(
-            name = "",
-            description = "",
-            mainBeanType = TYPE_IPC_AIDL
+            name = "Content Provider",
+            description = "使用content provider 实现同样的功能",
+            mainBeanType = TYPE_IPC_CONTENT_PROVIDER
         ).apply {
-            show = false
+            show = true
         }, MainContentBean(
             name = "",
             description = "",
@@ -113,6 +113,9 @@ class MainActivity : YMWYBaseActivity() {
                 }
                 TYPE_IPC_MESSENGER -> {
                     startActivity(Intent(this, YMWYMessengerServiceActivity::class.java))
+                }
+                TYPE_IPC_CONTENT_PROVIDER -> {
+                    startActivity(Intent(this, YMWYContentProviderActivity::class.java))
                 }
             }
         }
@@ -225,6 +228,7 @@ private enum class MainBeanType {
     TYPE_ACTIVITY_LAYOUT,
     TYPE_ACTIVITY_CREATE,
     TYPE_IPC_AIDL,
+    TYPE_IPC_CONTENT_PROVIDER,
     TYPE_IPC_MESSENGER,
     TYPE_IPC_BIND_SERVICE,
     TYPE_IPC_AIDL_TWICE,
